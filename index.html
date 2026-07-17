@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <!-- Google Fonts for professional typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="logo">
+            <span class="icon">💼</span>
+            <h1>EMS</h1>
+            <span class="divider">|</span>
+            <p class="subtitle">Employee Management System</p>
+        </div>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle Dark Mode">🌓Night Mode</button>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+        <!-- Dashboard Summary Cards (Bonus Feature) -->
+        <section class="dashboard-section">
+            <div class="card" id="cardTotal">
+                <h3>Total Employees</h3>
+                <p class="card-value" id="totalCount">0</p>
+            </div>
+            <div class="card" id="cardAvgSalary">
+                <h3>Average Salary</h3>
+                <p class="card-value" id="avgSalary">₹0</p>
+            </div>
+            <div class="card" id="cardDepts">
+                <h3>Departments</h3>
+                <p class="card-value" id="deptCount">0</p>
+            </div>
+        </section>
+
+        <div class="content-grid">
+            <!-- Left Panel: Employee Registration Form -->
+            <section class="form-panel">
+                <h2>Register Employee</h2>
+                <form id="employeeForm">
+                    <!-- Hidden field to track edit mode -->
+                    <input type="hidden" id="editIndex" value="-1">
+
+                    <div class="form-group">
+                        <label for="empName">Employee Name</label>
+                        <input type="text" id="empName" placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empEmail">Email Address</label>
+                        <input type="email" id="empEmail" placeholder="Enter email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empDept">Department</label>
+                        <select id="empDept" required>
+                            <option value="" disabled selected>Select Department</option>
+                            <option value="IT">IT</option>
+                            <option value="HR">HR</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empPosition">Position</label>
+                        <input type="text" id="empPosition" placeholder="e.g. Software Engineer" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empSalary">Salary (Monthly)</label>
+                        <input type="number" id="empSalary" min="1" placeholder="Enter monthly salary" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+                        <button type="reset" id="resetBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Right Panel: Employee List Table & Search/Filter Controls -->
+            <section class="list-panel">
+                <div class="list-header">
+                    <h2>Employee Directory</h2>
+                    <!-- Export Button (Bonus Feature) -->
+                    <button id="exportBtn" class="btn btn-export">📥 Export CSV</button>
+                </div>
+
+                <!-- Search & Filters Container -->
+                <div class="filter-bar">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" placeholder="Search by Name or Department...">
+                    </div>
+                    <div class="sort-box">
+                        <label for="sortBy">Sort By:</label>
+                        <select id="sortBy">
+                            <option value="default">Default</option>
+                            <option value="name">Name (A-Z)</option>
+                            <option value="salary">Salary (High to Low)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Scrollable Table Container -->
+                <div class="table-container">
+                    <table id="employeeTable">
+                        <thead>
+                            <tr>
+                                <th>Emp ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Position</th>
+                                <th>Salary</th>
+                                <th class="actions-col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeTableBody">
+                            <!-- Dynamic rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Empty State Message -->
+                <div id="emptyState" class="empty-state">
+                    <p>No employees found matching the search criteria.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+        <p>&copy; 2026 Employee Management System. All rights reserved.</p>
+        <p class="footer-author">Developed by Harshit Bansal | GLA University</p>
+    </footer>
+
+    <!-- Main JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

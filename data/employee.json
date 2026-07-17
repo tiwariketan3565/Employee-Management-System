@@ -1,0 +1,26 @@
+[
+  {
+    "id": "EMP001",
+    "name": "rahul Sharma",
+    "email": "rahul.sharma@example.com",
+    "department": "IT",
+    "position": "Software Engineer",
+    "salary": 70000
+  },
+  {
+    "id": "EMP002",
+    "name": "radha.patel",
+    "email": "radha.patel@example.com",
+    "department": "HR",
+    "position": "HR Specialist",
+    "salary": 50000
+  },
+  {
+    "id": "EMP003",
+    "name": "Rohan Verma",
+    "email": "rohan.verma@example.com",
+    "department": "Marketing",
+    "position": "SEO Specialist",
+    "salary": 35000
+  }
+]
